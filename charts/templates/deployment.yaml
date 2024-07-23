@@ -72,14 +72,18 @@ spec:
             - name: http
               containerPort: {{ .Values.container.port }}
               protocol: TCP
+          {{- if .Values.liveness.enabled -}}
           livenessProbe:
             httpGet:
               path: /webservices/status.php
               port: http
+          {{- end }}
+          {{- if .Values.readiness.enabled -}}
           readinessProbe:
             httpGet:
               path: /webservices/status.php
               port: http
+          {{- end }}
           resources:
             {{- toYaml .Values.resources | nindent 12 }}
       {{- with .Values.nodeSelector }}

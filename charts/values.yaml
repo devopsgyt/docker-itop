@@ -43,6 +43,11 @@ securityContext: {}
   # runAsNonRoot: true
   # runAsUser: 1000
 
+liveness:
+  enabled: true
+readiness:
+  enabled: true
+  
 pvc:
   accessMode: ReadWriteOnce
   storageClassName: standard

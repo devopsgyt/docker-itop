@@ -3,12 +3,22 @@ entries:
   itop-chart:
   - apiVersion: v2
     appVersion: 3.0.0
-    created: "2024-07-19T15:29:35.515658039-06:00"
+    created: "2024-07-23T09:22:40.199922765-06:00"
     description: Itop Helm chart
-    digest: bfe10df286ae85d7f2fc16624267b510b3e34def634bcea72a25b959f900d888
+    digest: 48f51880488e8bfe32586fc8f87e8cee1d5d06d17849281f687c08c9385095ea
+    name: itop-chart
+    type: application
+    urls:
+    - https://devopsgyt.github.io/docker-itop/itop-chart-0.2.0.tgz
+    version: 0.2.0
+  - apiVersion: v2
+    appVersion: 3.0.0
+    created: "2024-07-23T09:22:40.186169159-06:00"
+    description: Itop Helm chart
+    digest: bac062756cb543f2398ea6caebd1dbcc4e84b1b2ef453be52a64fb41ef90a481
     name: itop-chart
     type: application
     urls:
     - https://devopsgyt.github.io/docker-itop/itop-chart-0.1.0.tgz
     version: 0.1.0
-generated: "2024-07-19T15:29:35.511985765-06:00"
+generated: "2024-07-23T09:22:40.174686677-06:00"
