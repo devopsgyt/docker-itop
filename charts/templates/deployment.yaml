@@ -43,7 +43,13 @@ spec:
             claimName: itop-env-pvc
         - name: itop-log-pv
           persistentVolumeClaim:
-            claimName: itop-log-pvc   
+            claimName: itop-log-pvc
+        - name: itop-toolkit-pv
+          persistentVolumeClaim:
+            claimName: itop-toolkit-pvc
+        - name: itop-extensions-pv
+          persistentVolumeClaim:
+            claimName: itop-extensions-pvc
       containers:
         - name: {{ .Chart.Name }}
           securityContext:
@@ -59,6 +65,10 @@ spec:
               name: itop-log-pv
             - mountPath: "/var/www/html/conf"
               name: itop-conf-pv
+            - mountPath: "/var/www/html/toolkit"
+              name: itop-toolkit-pv
+            - mountPath: "/var/www/html/extensions"
+              name: itop-extensions-pv
           env:
             - name: "DB_ENV_MYSQL_DATABASE"
               value: {{ .Values.environment.db_name}}
@@ -72,13 +82,13 @@ spec:
             - name: http
               containerPort: {{ .Values.container.port }}
               protocol: TCP
-          {{- if .Values.liveness.enabled -}}
+          {{- if .Values.liveness.enabled }}
           livenessProbe:
             httpGet:
               path: /webservices/status.php
               port: http
           {{- end }}
-          {{- if .Values.readiness.enabled -}}
+          {{- if .Values.readiness.enabled }}
           readinessProbe:
             httpGet:
               path: /webservices/status.php

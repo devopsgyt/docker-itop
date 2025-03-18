@@ -41,10 +41,11 @@ securityContext: {}
   #   - ALL
   # readOnlyRootFilesystem: true
   # runAsNonRoot: true
-  # runAsUser: 1000
+  #runAsUser: 1000
 
 liveness:
   enabled: true
+
 readiness:
   enabled: true
   
@@ -58,6 +59,10 @@ pvc:
   env:
     size: 1Gi
   log:
+    size: 1Gi
+  toolkit:
+    size: 1Gi
+  extensions:
     size: 1Gi
 
 service:
